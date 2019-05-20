@@ -13,18 +13,38 @@ namespace TeamSpace.Controllers
 			return View();
 		}
 
-		public ActionResult About()
+		public ActionResult Account()
 		{
-			ViewBag.Message = "Your application description page.";
+			ViewBag.Message = "Your Account page.";
 
 			return View();
 		}
 
-		public ActionResult Contact()
+		public ActionResult Calendar()
 		{
-			ViewBag.Message = "Your contact page.";
+			ViewBag.Message = "Your Calendar page.";
 
 			return View();
 		}
-	}
+
+        public ActionResult Squads()
+        {
+            ViewBag.Message = "Your Squads page.";
+            return View();
+        }
+
+        public ActionResult Messages()
+        {
+            ViewBag.Message = "Your Messages page.";
+
+            return View();
+        }
+
+        public ActionResult FAQ()
+        {
+            ViewBag.Message = "Your FAQs page.";
+
+            return View();
+        }
+    }
 }

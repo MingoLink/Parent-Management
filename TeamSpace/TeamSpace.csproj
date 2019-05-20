@@ -236,6 +236,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Calendar.cshtml" />
+    <Content Include="Views\Home\Event.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\Messages.cshtml" />
+    <Content Include="Views\Home\Squads.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

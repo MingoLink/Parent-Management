@@ -1,7 +1,31 @@
-﻿
-@{
-    ViewBag.Title = "Squads";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-<h2>Squads</h2>
-<img src="~/Content/Img/SquadPage.png" class="mx-auto d-block img-fluid img-thumbnail" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h2>Squads</h2>
+                <ul class="list-unstyled" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FreshmanSquad</a>    
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Junior Varsity Squad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Varsity Squad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

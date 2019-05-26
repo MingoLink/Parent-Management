@@ -9,34 +9,42 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("TeamSpace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-dark navbar-fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="@Url.Action("Index", "Home")">TeamSpace</a>
+            </li>
+        </ul>
+        @Html.Partial("_LoginPartial")
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li>@Html.ActionLink("Account", "Account", "Home")</li>
+                        <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
+                        <li>@Html.ActionLink("Squads", "Squads", "Home")</li>
+                        <li>@Html.ActionLink("Messages", "Messages", "Home")</li>
+                        <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container body-content col-md-8">
+                @RenderBody()
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Account", "Account", "Home")</li>
-                    <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
-                    <li>@Html.ActionLink("Squads", "Squads", "Home")</li>
-                    <li>@Html.ActionLink("Messages", "Messages", "Home")</li>
-                    <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="container body-content col-md-2">
+                <!-- this is where upcoming events and announcements will go-->
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        
-        
-    </div>
+    
+
+    
+         
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

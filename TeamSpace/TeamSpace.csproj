@@ -188,6 +188,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Icon\calendar.svg" />
+    <Content Include="Content\Icon\chat.svg" />
+    <Content Include="Content\Icon\man-user.svg" />
+    <Content Include="Content\Icon\multiple-users.svg" />
+    <Content Include="Content\Icon\question-mark.svg" />
     <Content Include="Content\Img\Calendar.png" />
     <Content Include="Content\Img\EventPage.png" />
     <Content Include="Content\Img\FAQ.png" />

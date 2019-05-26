@@ -20,18 +20,53 @@
     
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <nav class="col-md-1 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <li>@Html.ActionLink("Account", "Account", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Calendar", "Calendar", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Squads", "Squads", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Messages", "Messages", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("FAQ", "FAQ", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Account", "Home")">
+                                <div>
+                                    <img src="~/Content/Icon/man-user.svg" width="50" height="50" class="mx-auto d-block" />
+                                    <h6 align="center">Account</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("Calendar", "Home")">
+                                <div>
+                                    <img src="~/Content/Icon/calendar.svg" width="50" height="50" class="mx-auto d-block"/>
+                                    <h6 align="center">Calendar</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("Squads", "Home")">
+                                <div class="mx-auto">
+                                    <img src="~/Content/Icon/multiple-users.svg" width="50" height="50" class="mx-auto d-block" />
+                                    <h6 align="center">Squads</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("Messages", "Home")">
+                                <div class="mx-auto">
+                                    <img src="~/Content/Icon/chat.svg" width="50" height="50" class="mx-auto d-block" />
+                                    <h6 align="center">Messages</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("FAQ", "Home")">
+                                <div class="mx-auto">
+                                    <img src="~/Content/Icon/question-mark.svg" width="50" height="50" class="mx-auto d-block" />
+                                    <h6 align="center">FAQ</h6>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
-            <div class="container body-content col-md-8">
+            <div class="container body-content col-md-9">
                 <!-- this is where the main page content will be displayed-->
                 @RenderBody()
             </div>

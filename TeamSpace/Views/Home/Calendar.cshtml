@@ -12,6 +12,9 @@
         table, th, td {
             border: 3px solid black;
         }
+        table{
+            table-layout: fixed;
+        }
         th {
             height: 30px;
             column-span: all;
@@ -20,6 +23,18 @@
             height: 100px;
             vertical-align: top;
             text-align: left;
+            padding: 5px;
+        }
+        td.otherMonth {
+            height: 100px;
+            vertical-align: top;
+            text-align: left;
+            padding: 5px;
+            color: lightgray;s
+        }
+        td.weekDay {
+            height: 100px;
+            text-align: center;
             padding: 5px;
         }
     </style>
@@ -32,19 +47,19 @@
         </tr>
 
         <tr>
-            <td>Sunday</td>
-            <td>Monday</td>
-            <td>Tuesday</td>
-            <td>Wednesday</td>
-            <td>Thursday</td>
-            <td>Friday</td>
-            <td>Saturday</td>
+            <td class="weekDay">Sunday</td>
+            <td class="weekDay">Monday</td2>
+            <td class="weekDay">Tuesday</td>
+            <td class="weekDay">Wednesday</td>
+            <td class="weekDay">Thursday</td>
+            <td class="weekDay">Friday</td>
+            <td class="weekDay">Saturday</td>
         </tr>
 
         <tr>
-            <td>29</td>
-            <td>29</td>
-            <td>30</td>
+            <td class="otherMonth">29</td>
+            <td class="otherMonth">29</td>
+            <td class="otherMonth">30</td>
             <td>1</td>
             <td>2</td>
             <td>3</td>
@@ -88,17 +103,17 @@
             <td>29</td>
             <td>30</td>
             <td>31</td>
-            <td>1</td>
+            <td class="otherMonth">1</td>
         </tr>
 
         <tr>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
+            <td class="otherMonth">2</td>
+            <td class="otherMonth">3</td>
+            <td class="otherMonth">4</td>
+            <td class="otherMonth">5</td>
+            <td class="otherMonth">6</td>
+            <td class="otherMonth">7</td>
+            <td class="otherMonth">8</td>
 
         </tr>
     </table>

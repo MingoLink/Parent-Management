@@ -46,5 +46,11 @@ namespace TeamSpace.Controllers
 
             return View();
         }
+
+        public ActionResult FreshmanSquad()
+        {
+            ViewBag.Message = "Freshman Squad Page.";
+            return View(); 
+        }
     }
 }

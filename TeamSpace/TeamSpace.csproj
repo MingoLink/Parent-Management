@@ -198,8 +198,11 @@
     <Content Include="Content\Img\FAQ.png" />
     <Content Include="Content\Img\HomePage.png" />
     <Content Include="Content\Img\Messaging.png" />
+    <Content Include="Content\Img\SeahawksCheerleading.jpg" />
     <Content Include="Content\Img\SquadPage.png" />
+    <Content Include="Content\Img\UWCheerleading.jpg" />
     <Content Include="Content\Img\VolunteerPage.png" />
+    <Content Include="Content\Img\WASUCheerleading.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

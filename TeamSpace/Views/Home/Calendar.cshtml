@@ -8,18 +8,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         table, th, td {
             border: 3px solid black;
         }
+
         table {
             table-layout: fixed;
         }
+
         th {
-            height: 50px;
+            height: 30px;
             -webkit-column-span: all;
             text-align: center;
             font-size: 24px;
+            border-left: none;
+            border-right: none;
+        }
+        th.left {
+            height: 30px;
+            -webkit-column-span: all;
+            text-align: left;
+            vertical-align: middle;
+            border-right: none;
+            padding: 10px;
+        }
+        th.right {
+            height: 30px;
+            -webkit-column-span: all;
+            text-align: right;
+            vertical-align: middle;
+            border-left: none;
+            padding: 10px;
         }
         td {
             height: 100px;
@@ -27,6 +48,7 @@
             text-align: left;
             padding: 5px;
         }
+
         td.otherMonth {
             height: 100px;
             vertical-align: top;
@@ -34,18 +56,21 @@
             padding: 5px;
             color: lightgray;
         }
+
         td.weekDay {
             height: 50px;
             text-align: center;
             vertical-align: middle;
             padding: 5px;
         }
+
         td.event {
             height: 15px;
             text-align: left;
             vertical-align: middle;
-            border: none;
+            border-right: 3px solid black;
         }
+
         td.eventTable {
             border: none;
             height: 100px;
@@ -53,6 +78,7 @@
             text-align: left;
             padding: 5px;
         }
+
         .underline {
             text-decoration: underline;
             color: cornflowerblue;
@@ -63,12 +89,14 @@
 
     <table style="width:100%">
         <tr>
-            <th colspan="7"> May 2019 </th>
+            <th class="left"><i class="fa fa-angle-double-left" style="font-size:24px"></i></th>
+            <th colspan="5"> May 2019 </th>
+            <th class="right"><i class="fa fa-angle-double-right" style="font-size:24px"></i></th>
         </tr>
 
         <tr>
             <td class="weekDay">Sunday</td>
-            <td class="weekDay">Monday</td2>
+            <td class="weekDay">Monday</td>
             <td class="weekDay">Tuesday</td>
             <td class="weekDay">Wednesday</td>
             <td class="weekDay">Thursday</td>

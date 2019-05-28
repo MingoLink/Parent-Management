@@ -12,7 +12,7 @@
         table, th, td {
             border: 3px solid black;
         }
-        table{
+        table {
             table-layout: fixed;
         }
         th {
@@ -39,6 +39,23 @@
             text-align: center;
             vertical-align: middle;
             padding: 5px;
+        }
+        td.event {
+            height: 15px;
+            text-align: left;
+            vertical-align: middle;
+            border: none;
+        }
+        td.eventTable {
+            border: none;
+            height: 100px;
+            vertical-align: top;
+            text-align: left;
+            padding: 5px;
+        }
+        .underline {
+            text-decoration: underline;
+            color: cornflowerblue;
         }
     </style>
 </head>
@@ -76,14 +93,21 @@
             <td>8</td>
             <td>9</td>
             <td>10</td>
-            <td>11</td>
+            <td class="eventTable">
+                <div>11</div>
+                <div class="underline">Cheerapalooza</div>
+                <div class="underline">Sleepover</div>
+            </td>
         </tr>
 
         <tr>
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td>15</td>
+            <td class="eventTable">
+                <div>15</div>
+                <div class="underline">Bake Sale</div>
+            </td>
             <td>16</td>
             <td>17</td>
             <td>18</td>

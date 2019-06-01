@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-dark flex-md-nowrap shadow mt-0">
@@ -23,6 +23,11 @@
             <nav class="col-md-1 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class=nav-link href=@Url.Action("Index", "Home")>
+                                <h1 align="center">TS</h1>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Account", "Home")">
                                 <div>

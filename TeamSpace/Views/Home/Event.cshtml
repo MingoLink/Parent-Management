@@ -4,4 +4,545 @@
 }
 
 <h2>Event</h2>
-<img src="~/Content/Img/EventPage.png" class="mx-auto d-block img-fluid img-thumbnail" />
+
+@{
+    ViewBag.Title = "Calendar";
+}
+
+<h2>Calendar</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <style>
+        @@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        * {
+          margin: 0;
+          padding: 0;
+          color: inherit;
+          text-decoration: none;
+        }
+
+        /*////////// SCROLLBAR ////////*/
+
+
+        ::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        ::-webkit-scrollbar:hover {
+          width: 10px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D33;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E44;
+
+        }
+
+
+
+
+        body{
+          background: #EEE;
+        }
+
+        .main {
+          width: 80%;
+          margin: auto;
+          min-width: 600px;
+        }
+
+        .content{
+          display: inline-block;
+          width: 69%;
+
+        }
+
+        h2{
+          font-size: 28pt;
+          color: #555;
+          font-weight: 100;
+          background-color: #FFF;
+          padding: 5px 15px;
+        }
+        .sticky.stuck{
+          border-bottom: thin solid rgba(0,0,0,.2);
+          box-shadow:0 10px 15px -10px rgba(0,0,0,.1);
+        }
+
+        p{
+          font-size: 12pt;
+          margin: 10px 0;
+          text-indent: 2em;
+        }
+
+        article {
+          margin: 20px;
+          background: #FFF;
+          font-family: "Open Sans";
+          box-shadow:1px 2px 3px rgba(0,0,0,.2);
+          position: relative;
+        }
+
+        .art-text{
+          padding: 10px 20px;
+          overflow: auto;
+        }
+
+        .header-img {
+          width: 100%;
+          display: block;
+        }
+
+        .art-text img{
+          max-width: 100%;
+          float: left;
+          margin: 10px 10px 0 0;
+        }
+
+        .embedded-video{
+          margin: 0;
+          padding: 0;
+        }
+
+        hr {
+          margin: 10px 0;
+          border: none;
+          border-top: thin solid rgba(0,0,0,.1);
+        }
+
+        article:before{
+          content: "\f05a";
+          color: rgba(255,255,255,.9);
+          display: block;
+          position: absolute;
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 28px;
+          text-align: center;
+          padding: 5px 10px;
+          top: 0px;
+          right: 0px;
+          border-bottom-left-radius: 20px;
+          z-index: 100;
+        }
+
+        article:after{
+          content: "Published: "attr(data-post-date);
+          position: absolute;
+          font-size: 10px;
+          padding: 3px 5px;
+          bottom: 0px;
+          right: 0px;
+          background: #FAFAFA;
+          color: #AAA;
+
+        }
+
+        article.info:before{
+          content: "\f05a";
+          background: #29F;
+        }
+
+        article.video:before{
+          content: "\f03d";
+          background: #82F;
+        }
+
+        article.announcement:before{
+          content: "\f0a1";
+          background-color: #E32;
+        }
+
+        aside {
+          display: inline-block;
+          width: 30%;
+          vertical-align: top;
+        }
+
+        .calendar{
+          margin: 20px auto;
+          min-width: 150px;
+          max-width: 240px;
+        }
+
+        .ui-datepicker-header {
+            color: #333;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .ui-datepicker {
+          text-align: center;
+          font-family: "Helvetica";
+          color: #666;
+          position: relative;
+        }
+
+        .date-block{
+          text-align: center;
+          background: #D32;
+          font-family: "Helvetica";
+          color: #F4F4F4;
+          font-size: 18pt;
+          padding: 10px;
+
+        }
+
+        .date-day{
+          font-size: 24pt;
+        }
+        .date-date{
+          font-size: 48pt;
+        }
+
+        .ui-datepicker-prev, .ui-datepicker-next {
+            display: inline-block;
+            font-family: FontAwesome;
+            width: 52px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            background-color:none;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            position: absolute;
+            color: #D54;
+        }
+        .ui-datepicker-prev {
+            left: 0;
+            border-radius:0 0 30px 0;
+        }
+        .ui-datepicker-next {
+            right: 0;
+            border-radius:0 0 0 30px;
+        }
+
+        .ui-datepicker-prev:before {
+          content: "\f053";
+          display: block;
+        }
+
+        .ui-datepicker-next:before {
+          content: "\f054";
+          display: block;
+
+        }
+
+        .ui-datepicker-year{
+          font-weight: normal;
+          color: #999;
+        }
+
+
+        .ui-datepicker-month{
+          font-weight: bold;
+          background: #EEE;
+          font-size: 12pt;
+          border: none;
+        }
+
+        .ui-datepicker-calendar {
+          border-collapse:collapse;
+          width: 100%;
+          margin-top: 10px;
+          text-align: center;
+          font-family: "Helvetica";
+        }
+
+        .ui-datepicker td a, .ui-datepicker td span{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          font-size: 12px;
+          padding: 10px 0;
+          color: #333;
+          border-radius: 50%;
+          transition:all .1s ease;
+        }
+
+        .ui-datepicker td span{
+          color: #BBB;
+        }
+
+        .ui-datepicker .ui-state-active {
+          background: #BBB;
+        }
+        .ui-datepicker .ui-state-highlight {
+          background: #FFF;
+          color: #D32;
+        }
+
+
+        .ui-datepicker a:hover {
+          background: #d32;
+          color: #FAFAFA;
+        }
+
+        .social-buttons a{
+          display: inline-block;
+          color: #555;
+          font-size: 24pt;
+          width: 15%;
+          text-align: center;
+
+        }
+
+        .social-buttons a:hover{
+          color: #D43 ;
+          color: attr(data-color);
+        }
+
+
+
+        .twitter-timeline {
+          width: 100%;
+          min-width: 300px;
+          height: 500px;
+          border-radius:10px;
+        }
+
+        /*//////////// FOOTER ///////////*/
+
+
+        footer {
+          background: #000;
+          margin-top: 50px;
+          padding-bottom: 10px;
+          color: #222;
+          text-align: center;
+          font-family: "Open Sans";
+        }
+        footer .bottom{
+          margin: 20px;
+        }
+
+        footer .footer-cell {
+          display: inline-block;
+          width: 25%;
+          color: #555;
+          text-align: left;
+          vertical-align: top;
+          padding: 10px;
+          border-left: thin solid #111;
+        }
+
+        .footer-cell ul {
+          list-style: none;
+          padding-left: 15px;
+          text-indent: -5px;
+          font-size: 10pt;
+        }
+
+        .footer-social{
+          background: #111;
+          padding: 20px;
+        }
+
+
+        .footer-social ul{
+          -ms-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          list-style: none;
+        }
+
+        .socialList li{
+          display: inline-block;
+          font-size: 3em;
+          color: #555;
+          width: 10%;
+          min-width: 50px;
+        }
+
+        .socialList li a:hover{
+          color: #D55;
+          text-shadow:0 0 5px #500;
+
+        }
+
+        .footer-cell h3 {
+          display: block;
+          padding-bottom: 3px;
+        }
+
+
+        .footer-cell a:hover{
+          color: #999;
+        }
+
+
+        /*//////////// MEDIA ////////////*/
+
+        @@media screen and (max-width:600px){
+          .main, aside, .container, .content, article{
+            margin-left: 0;
+            margin-right:0;
+            padding: 0;
+            display: block;
+            width: auto;
+            min-width: 0;
+          }
+
+          .calendar {
+            width: 100%;
+            max-width: none;
+          }
+
+
+          .ui-datepicker td a, .ui-datepicker td span{
+            border-radius:0;
+          }
+
+
+          .twitter-feed{
+            margin: 20px;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="content">
+                <article class="announcement" data-post-date="April 8">
+                    <div class="sticky">
+
+                        <img src="http://webapps.jhu.edu/jhuniverse/images/site/campuslife/campuslife.jpg" alt="RPI" class="header-img" />
+                        <h2>This is an Announcement</h2>
+                    </div>
+                    <div class="art-text">
+
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                    </div>
+                </article>
+                <article class="info" data-post-date="April 6">
+
+                    <h2 class="sticky">This is an Info Article</h2>
+                    <div class="art-text">
+                        <img src="https://www.stanford.edu/~dritchie/img/portrait_small.jpg" alt="guy" width="200" />
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                    </div>
+                </article>
+                <article class="info" data-post-date="April 6">
+                    <h2 class="sticky">This is a long Info Article</h2>
+
+                    <div class="art-text">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <img src="http://www.rpi.edu/graphic4/campus_aerial-960r2.jpg" alt="school" />
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                    </div>
+                </article>
+
+                <article class="video" data-post-date="April 6">
+                    <iframe class="embedded-video" height="315" width="100%" src="//www.youtube.com/embed/GLkbcsNJIv0" frameborder="0" allowfullscreen></iframe>
+                    <h2 class="sticky">This is a Video Article</h2>
+                    <div class="art-text">
+
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                    </div>
+                </article>
+            </div>
+
+            <aside>
+                <div class="calendar">
+                    <div class="date-block">
+                        <div class="date-day">Tuesday</div>
+                        <div class="date-date">8</div>
+                        <span class="date-month">April</span>,
+                        <span class="date-year">2014</span>
+                    </div>
+                    <div id="datepicker"></div>
+                </div>
+                <hr />
+                <span id="debug"></span>
+                <div class="social-buttons">
+                    <a href="#" data-color="#53F"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+                <hr />
+                <div class="twitter-feed">
+                    <a class="twitter-timeline" width="300" href="https://twitter.com/RPIUnion" data-widget-id="452094137349582848" data-link-color="#EE3322" data-chrome="transparent">Tweets by @@RPIUnion</a>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+
+var d=new Date();
+var month=[];
+month[0]="January";
+month[1]="February";
+month[2]="March";
+month[3]="April";
+month[4]="May";
+month[5]="June";
+month[6]="July";
+month[7]="August";
+month[8]="September";
+month[9]="October";
+month[10]="November";
+month[11]="December";
+var day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var date = d.getDate();
+var dayName = day[d.getDay()];
+var m = month[d.getMonth()];
+var y = d.getFullYear();
+
+var D = new Date(y,m,1);
+var first = D.getDay();
+
+$(document).ready(function() {
+  $(".date-year").text(y);
+  $(".date-month").text(m);
+  $(".date-day").text(dayName);
+  $(".date-date").text(date);
+  $(".sticky").stick_in_parent({sticky_class:"stuck"});
+});
+
+$(function(){
+        $('#datepicker').datepicker({
+            inline: true,
+            monthNamesShort: [ "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            showOtherMonths: true,
+            changeMonth:true,
+            dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            altField: "#date"
+        });
+});</script>
+</body>
+</html>
+
+
+
+
+

@@ -58,5 +58,11 @@ namespace TeamSpace.Controllers
             ViewBag.Message = "Darren Brown's Profile.";
             return View(); 
         }
+
+        public ActionResult Event()
+        {
+            ViewBag.Message = "Cheerapalooza";
+            return View();
+        }
     }
 }

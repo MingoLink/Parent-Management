@@ -7,9 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-        a {
-            color: inherit; 
-        }
+       
         body {
             padding-top: 0em; 
         }
@@ -28,12 +26,12 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class=nav-link href=@Url.Action("Index", "Home")>
+                            <a class=nav-link style="color: inherit" href=@Url.Action("Index", "Home")>
                                 <h1 align="center">TS</h1>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Account", "Home")">
+                            <a class="nav-link" style="color: inherit" href="@Url.Action("Account", "Home")">
                                 <div>
                                     <img src="~/Content/Icon/man-user.svg" width="50" height="50" class="mx-auto d-block" />
                                     <h6 align="center">Account</h6>
@@ -41,7 +39,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="@Url.Action("Calendar", "Home")">
+                            <a class="nav-link" style="color: inherit" href="@Url.Action("Calendar", "Home")">
                                 <div>
                                     <img src="~/Content/Icon/calendar.svg" width="50" height="50" class="mx-auto d-block"/>
                                     <h6 align="center">Calendar</h6>
@@ -49,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="@Url.Action("Squads", "Home")">
+                            <a class="nav-link" style="color: inherit" href="@Url.Action("Squads", "Home")">
                                 <div class="mx-auto">
                                     <img src="~/Content/Icon/multiple-users.svg" width="50" height="50" class="mx-auto d-block" />
                                     <h6 align="center">Squads</h6>
@@ -57,7 +55,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="@Url.Action("Messages", "Home")">
+                            <a class="nav-link" style="color: inherit" href="@Url.Action("Messages", "Home")">
                                 <div class="mx-auto">
                                     <img src="~/Content/Icon/chat.svg" width="50" height="50" class="mx-auto d-block" />
                                     <h6 align="center">Messages</h6>
@@ -65,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="@Url.Action("FAQ", "Home")">
+                            <a class="nav-link" style="color: inherit" href="@Url.Action("FAQ", "Home")">
                                 <div class="mx-auto">
                                     <img src="~/Content/Icon/question-mark.svg" width="50" height="50" class="mx-auto d-block" />
                                     <h6 align="center">FAQ</h6>

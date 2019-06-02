@@ -1,16 +1,23 @@
-﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+﻿@using TeamSpace.Models
+
 
 
 @{
-    ViewBag.Title = "Messenger";
+    ViewBag.Title = "Index";
+}
+
+@{
+    var data = ViewBag.Message;
 }
 
 <h2>Messenger</h2>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,7 +269,7 @@
                             <div class="chat_ib">
                                 <h5>Darren Browns<span class="chat_date">May 9</span></h5>
                                 <p>
-                                    Who is your daughter riding with?
+                                    @data.Message6
                                 </p>
                             </div>
                         </div>
@@ -348,9 +355,7 @@
                         <div class="received_msg">
                             <div class="received_withd_msg">
                                 <p>
-                                    Did my daughter leave her uniform at your house?? I can't find it and
-                                    its only a few hours away from the competition!!!
-                                    I am freaking out!
+                                    @data.Message1
                                 </p>
                                 <span class="time_date"> 11:33 AM    |    May 5</span>
                             </div>
@@ -359,8 +364,7 @@
                     <div class="outgoing_msg">
                         <div class="sent_msg">
                             <p>
-                                I have your daughters uniform. I washed it after she left it at my house
-                                when she had a sleepover with Michelle.I'll bring it to the competition.
+                                @data.Message2
                             </p>
                             <span class="time_date"> 11:41 AM    |    May 5</span>
                         </div>
@@ -370,8 +374,7 @@
                         <div class="received_msg">
                             <div class="received_withd_msg">
                                 <p>
-                                    Hey, Just checking in.. Did you remember to bring the Gluten Free Snacks?
-                                    Also, what is Gluten Free mean?
+                                    @data.Message3
                                 </p>
                                 <span class="time_date"> 5:32 PM    |    Yesterday</span>
                             </div>
@@ -379,7 +382,7 @@
                     </div>
                     <div class="outgoing_msg">
                         <div class="sent_msg">
-                            <p>Yes we are good! Also, check the FAQ page dude!</p>
+                            <p>@data.Message4</p>
                             <span class="time_date"> 6:19 PM    |    Yesterday</span>
                         </div>
                     </div>
@@ -388,10 +391,16 @@
                         <div class="received_msg">
                             <div class="received_withd_msg">
                                 <p>
-                                    Who is your daughter riding with?
+                                    @data.Message5
                                 </p>
                                 <span class="time_date"> 5:01 PM    |    Today</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <label>@data.Message6</label>
+                            <span class="time_date"> 6:19pm    |    Yesterday</span>
                         </div>
                     </div>
                 </div>
@@ -404,6 +413,11 @@
             </div>
         </div>
     </div>
+    <script>
+        $("button").click(function () {
+            $("label").toggle("slow");
+        });
+    </script>
 </body>
 </html>
 

@@ -40,8 +40,8 @@ namespace TeamSpace.Controllers
             MessagesModel m = new MessagesModel
             {
                 Message1 = "Did my daughter leave her uniform at your house?? I can't find it and its only a few hours away from the competition!!! I am freaking out!",
-                Message2 = "I have your daughters uniform. I washed it after she left it at my house when she had a sleepover with Michelle.I'll bring it to the competition.",
-                Message3 = "Hey, Just checking in.. Did you remember to bring the Gluten Free Snacks? Also, what is Gluten Free mean?",
+                Message2 = "I have your daughters uniform. I washed it after she left it at my house when she had a sleepover with Michelle. I'll bring it to the competition.",
+                Message3 = "Hey, Just checking in.. Did you remember to bring the Gluten Free Snacks? Also, what does Gluten Free mean?",
                 Message4 = "Yes we are good! Also, check the FAQ page dude!",
                 Message5 = "Who is your daughter riding with?",
                 Message6 = "She is riding with you. Let me know if you have trouble finding my house."

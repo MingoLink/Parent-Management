@@ -44,7 +44,7 @@ namespace TeamSpace.Controllers
                 Message3 = "Hey, Just checking in.. Did you remember to bring the Gluten Free Snacks? Also, what is Gluten Free mean?",
                 Message4 = "Yes we are good! Also, check the FAQ page dude!",
                 Message5 = "Who is your daughter riding with?",
-                Message6 = "Who is your daughter riding with?"
+                Message6 = "She is riding with you. Let me know if you have trouble finding my house."
             };
             ViewBag.Message = m;
             return View();

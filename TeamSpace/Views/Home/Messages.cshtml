@@ -224,6 +224,10 @@
             position: relative;
         }
 
+        .initiallyHidden {
+            display: none;
+        }
+
         .msg_send_btn {
             background: #05728f none repeat scroll 0 0;
             border: none;
@@ -263,14 +267,16 @@
                     </div>
                 </div>
                 <div class="inbox_chat scroll">
-                    <div class="chat_list active_chat">
-                        <div class="chat_people">
-                            <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                            <div class="chat_ib">
-                                <h5>Darren Browns<span class="chat_date">May 9</span></h5>
-                                <p>
-                                    @data.Message6
-                                </p>
+                    <div id="one" style="display:none;">
+                        <div class="chat_list active_chat">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                <div class="chat_ib">
+                                    <h5>Darren Browns<span class="chat_date">May 9</span></h5>
+                                    <p>
+                                        @data.Message6
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -397,10 +403,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="outgoing_msg">
-                        <div class="sent_msg">
-                            <label>@data.Message6</label>
-                            <span class="time_date"> 6:19pm    |    Yesterday</span>
+                    <div id="two" style="display:none;">
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>@data.Message6</p>
+                                <span class="time_date"> 6:19 PM    |    Today</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -415,7 +423,10 @@
     </div>
     <script>
         $("button").click(function () {
-            $("label").toggle("slow");
+            $("#two").toggle("slow");
+        });
+        $("button").click(function () {
+            $("#one").toggle("slow");
         });
     </script>
 </body>

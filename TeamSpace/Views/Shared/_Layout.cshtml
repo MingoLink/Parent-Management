@@ -85,70 +85,108 @@
                     </ul>
                 </div>
             </nav>
-            <div class="container body-content col-md-9">
+            <div class="container body-content col-md-8">
                 <!-- this is where the main page content will be displayed-->
                 @RenderBody()
             </div>
-            <div class="container body-content col-md-2">
+            <div class="container body-content col-md-3">
                 <!-- this is where upcoming events and announcements will go-->
                 <div class="row">
                     <div class="col">
-                        <h5 class="mt-3">Upcoming Events</h5>
-                        <div class="list-group" >
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="@Url.Action("Event", "Home")" >
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Cheerapalooza</h6>
+                        
+                        <div id="accordion">
+                            <div class="card mt-5">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <h6>Upcoming Events</h6>
+                                        </button>
+                                    </h5>
                                 </div>
-                                <p class="mb-1">Saturday, May 11th</p>
-                                <p class="mb-1">9:00am</p>
-                            </a>
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Sleepover at Becky's</h6>
-                                </div>
-                                <p class="mb-1">Saturday, May 11th</p>
-                                <p class="mb-1">10:00pm</p>
-                            </a>
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Bake Sale</h6>
-                                </div>
-                                <p class="mb-1">Wednesday, May 15th</p>
-                                <p class="mb-1">3:00pm</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h5 class="mt-3">Announcements</h5>
-                        <div class="list-group">
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Gluten Free Snacks Only</h6>
-                                </div>
-                                <p class="mb-1">For cheerleading events, please only bring gluten-free items for the...</p>
-                                
-                                <small>May 11th, 2019 4:00pm</small>
-                            </a>
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">No vaping in the locker room</h6>
-                                </div>
-                                <p class="mb-1">Vaping is bad, m'kay?</p>
-                                
-                                <small>May 10th, 2019 7:00pm</small>
-                            </a>
-                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Personal Hygiene 101</h6>
-                                </div>
-                                <p class="mb-1">Please remind your children to take a shower before coming to practice...</p>
-                                
-                                <small>April 15th, 2019 5:43pm</small>
-                            </a>
-                        </div>
 
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" >
+                                    <div class="card-body">
+                                        
+                                        <div class="list-group">
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="@Url.Action("Event", "Home")">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">Cheerapalooza</h6>
+                                                </div>
+                                                <p class="mb-1">Saturday, May 11th</p>
+                                                <p class="mb-1">9:00am</p>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">Sleepover at Becky's</h6>
+                                                </div>
+                                                <p class="mb-1">Saturday, May 11th</p>
+                                                <p class="mb-1">10:00pm</p>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">Bake Sale</h6>
+                                                </div>
+                                                <p class="mb-1">Wednesday, May 15th</p>
+                                                <p class="mb-1">3:00pm</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <h6>Announcements</h6>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" >
+                                    <div class="card-body">
+                                        <div class="list-group">
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">Gluten Free Snacks Only</h6>
+                                                </div>
+                                                <p class="mb-1">For cheerleading events, please only bring gluten-free items for the...</p>
+
+                                                <small>May 11th, 2019 4:00pm</small>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">No vaping in the locker room</h6>
+                                                </div>
+                                                <p class="mb-1">Vaping is bad, m'kay?</p>
+
+                                                <small>May 10th, 2019 7:00pm</small>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h6 class="mb-1">Personal Hygiene 101</h6>
+                                                </div>
+                                                <p class="mb-1">Please remind your children to take a shower before coming to practice...</p>
+
+                                                <small>April 15th, 2019 5:43pm</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <h6>Your Tasks</h6>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" >
+                                    <div class="card-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusam.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

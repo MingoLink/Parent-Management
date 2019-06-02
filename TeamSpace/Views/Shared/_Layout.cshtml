@@ -3,12 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeamSpace</title>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
+        body{
+            padding-top: 0;
+        }
         .nav-item:hover {
             color: #0094ff
+        }
+        h1 {
+           font-size: 80px;
+           font-weight: 900;
+           font-style:italic;
+
         }
 
     </style>
@@ -25,51 +34,51 @@
             <nav class="col-md-1 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-
+                        
                         <li class="nav-item">
                             <div class="nav-item">
                                 <a class="nav-link" style="color: inherit;" href=@Url.Action("Index", "Home")>
-                                    <h1 align="center">TS</h1>
+                                    <h1 style="font-size:70px;" align="center">TS</h1>
                                 </a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("Account", "Home")">
                                 <div>
-                                    <img src="~/Content/Icon/man-user.svg" width="50" height="50" class="mx-auto d-block" />
-                                    <h6 align="center">Account</h6>
+                                    <img src="~/Content/Icon/man-user.svg" width="75" height="75" class="mx-auto d-block" />
+                                    <h5 align="center">Account</h5>
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("Calendar", "Home")">
                                 <div>
-                                    <img src="~/Content/Icon/calendar.svg" width="50" height="50" class="mx-auto d-block"/>
-                                    <h6 align="center">Calendar</h6>
+                                    <img src="~/Content/Icon/calendar.svg" width="75" height="75" class="mx-auto d-block"/>
+                                    <h5 align="center">Calendar</h5>
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("Squads", "Home")">
                                 <div class="mx-auto">
-                                    <img src="~/Content/Icon/multiple-users.svg" width="50" height="50" class="mx-auto d-block" />
-                                    <h6 align="center">Squads</h6>
+                                    <img src="~/Content/Icon/multiple-users.svg" width="75" height="75" class="mx-auto d-block" />
+                                    <h5 align="center">Squads</h5>
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("Messages", "Home")">
                                 <div class="mx-auto">
-                                    <img src="~/Content/Icon/chat.svg" width="50" height="50" class="mx-auto d-block" />
-                                    <h6 align="center">Messages</h6>
+                                    <img src="~/Content/Icon/chat.svg" width="75" height="75" class="mx-auto d-block" />
+                                    <h5 align="center">Messages</h5>
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("FAQ", "Home")">
                                 <div class="mx-auto">
-                                    <img src="~/Content/Icon/question-mark.svg" width="50" height="50" class="mx-auto d-block" />
-                                    <h6 align="center">FAQ</h6>
+                                    <img src="~/Content/Icon/question-mark.svg" width="75" height="75" class="mx-auto d-block" />
+                                    <h5 align="center">FAQ</h5>
                                 </div>
                             </a>
                         </li>

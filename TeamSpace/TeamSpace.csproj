@@ -194,10 +194,17 @@
     <Content Include="Content\Icon\man-user.svg" />
     <Content Include="Content\Icon\multiple-users.svg" />
     <Content Include="Content\Icon\question-mark.svg" />
+    <Content Include="Content\Img\1181_UCAPuget2017.jpg" />
+    <Content Include="Content\Img\bg2.jpg" />
     <Content Include="Content\Img\Calendar.png" />
     <Content Include="Content\Img\EventPage.png" />
     <Content Include="Content\Img\FAQ.png" />
     <Content Include="Content\Img\HomePage.png" />
+    <Content Include="Content\Img\IMG_0016.jpg" />
+    <Content Include="Content\Img\IMG_0201.jpg" />
+    <Content Include="Content\Img\IMG_1357.jpg" />
+    <Content Include="Content\Img\IMG_6403.jpg" />
+    <Content Include="Content\Img\IMG_7108.jpg" />
     <Content Include="Content\Img\Messaging.png" />
     <Content Include="Content\Img\SeahawksCheerleading.jpg" />
     <Content Include="Content\Img\SquadPage.png" />

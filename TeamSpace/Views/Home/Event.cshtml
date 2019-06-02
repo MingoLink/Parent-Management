@@ -521,8 +521,8 @@
                 <article class="info">
                     <h2 class="sticky">Volunteer Opportunities</h2>
                     <div class="row">
-                        <div class="col-md-8">
-                            <p class="mb-1">Parent Chaperone: 0/2</p>
+                        <div class="col-md-8 ml-3 mt-2">
+                            Parent Chaperone: 0/2
                             
                         </div>
                         <div class="col-md-3">
@@ -534,14 +534,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
-                            
-                            <p class="mb-1">Bring: juice and oranges 0/1</p>
-                            
+                        <div class="col-md-8 ml-3 mt-2" id="toggleSignUp"> 
+                            Bring: juice and oranges 0/1
                         </div>
                         <div class="col-md-3">
-                            
-                            <button class="btn btn-primary mb-1" type="button">Sign Up</button>
+ 
+                            <button class="btn btn-primary mb-1" onclick="toggleSnackSignUp()" type="button">Sign Up</button>
                             
                         </div>
                         <div class="col-md-1">
@@ -549,9 +547,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 ml-3 mt-2">
 
-                            <p class="mb-">Bring: sandwiches and snacks: 0/1</p>
+                            Bring: sandwiches and snacks: 0/1
                         </div>
                         <div class="col-md-3">
 
@@ -661,6 +659,19 @@
             </aside>
         </div>
     </div>
+
+    <script>
+        function toggleSnackSignUp() {
+            var x = document.getElementById("toggleSignUp");
+            if (x.innerHTML === "Bring: juice and oranges 0/1") {
+                x.innerHTML = "Bring: juice and oranges 1/1";
+            } else {
+                x.innerHTML = "Bring: juice and oranges 0/1";
+            }
+        }
+    </script>
+
+
 </body>
 </html>
 

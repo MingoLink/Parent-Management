@@ -642,8 +642,8 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Darren Brown (2/4)
+                                <label class="form-check-label" >
+                                    <input type="radio" class="form-check-input" name="optradio" ><span id="DarrenBrownRadio">Darren Brown (2/4)</span>
                                 </label>
                             </div>
                             <button id ="carpoolButton" class="btn btn-primary mt-1 mb-2" type="button" onclick="toggleCarpoolButton()">Confirm</button>
@@ -728,6 +728,8 @@
             var x = document.getElementById("carpoolButton");
             x.style.background = "Green";
             x.innerHTML = "Confirmed!";
+            var y = document.getElementById("DarrenBrownRadio");
+            y.innerHTML = "Darren Brown (3/4)";
         }
 
         function toggleSnackList() {

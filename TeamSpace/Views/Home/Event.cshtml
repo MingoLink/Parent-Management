@@ -609,7 +609,7 @@
                                     <input type="radio" class="form-check-input" name="optradio">Darren Brown (2/4)
                                 </label>
                             </div>
-                            <button class="btn btn-primary mt-1 mb-2" type="button">Confirm</button>
+                            <button id ="carpoolButton" class="btn btn-primary mt-1 mb-2" type="button" onclick="toggleCarpoolButton()">Confirm</button>
 
                         </div>
                     </div>  
@@ -685,6 +685,12 @@
             var x = document.getElementById("toggleButton");
             x.style.background = "Green"; 
             x.innerHTML = "Signed Up!";
+        }
+
+        function toggleCarpoolButton() {
+            var x = document.getElementById("carpoolButton");
+            x.style.background = "Green";
+            x.innerHTML = "Confirmed!";
         }
 
         function toggleSnackList() {

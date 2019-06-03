@@ -3,38 +3,40 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
     <title>TeamSpace</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-        body{
+        body {
             padding-top: 0;
         }
+
         .nav-item:hover {
             color: #0094ff
         }
+
         h1 {
-           font-size: 80px;
-           font-weight: 900;
-           font-style:italic;
-
+            font-size: 80px;
+            font-weight: 900;
+            font-style: italic;
         }
-
     </style>
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-dark flex-md-nowrap shadow mt-0">
-        
+
         @Html.Partial("_LoginPartial")
     </nav>
-    
+
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-1 d-none d-md-block bg-light sidebar">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        
+
                         <li class="nav-item">
                             <div class="nav-item">
                                 <a class="nav-link" style="color: inherit;" href=@Url.Action("Index", "Home")>
@@ -53,7 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link" style="color: inherit" href="@Url.Action("Calendar", "Home")">
                                 <div>
-                                    <img src="~/Content/Icon/calendar.svg" width="75" height="75" class="mx-auto d-block"/>
+                                    <img src="~/Content/Icon/calendar.svg" width="75" height="75" class="mx-auto d-block" />
                                     <h5 align="center">Calendar</h5>
                                 </div>
                             </a>
@@ -85,15 +87,15 @@
                     </ul>
                 </div>
             </nav>
-            <div class="container body-content col-md-8">
+            <div class="container body-content col-md-7">
                 <!-- this is where the main page content will be displayed-->
                 @RenderBody()
             </div>
-            <div class="container body-content col-md-2">
+            <div class="container body-content col-md-3">
                 <!-- this is where upcoming events and announcements will go-->
                 <div class="row">
                     <div class="col">
-                        
+
                         <div id="accordion">
                             <div class="card mt-5">
                                 <div class="card-header" id="headingOne">
@@ -104,9 +106,9 @@
                                     </h5>
                                 </div>
 
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" >
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
                                     <div class="card-body">
-                                        
+
                                         <div class="list-group">
                                             <a class="list-group-item list-group-item-action flex-column align-items-start" href="@Url.Action("Event", "Home")">
                                                 <div class="d-flex w-100 justify-content-between">
@@ -141,7 +143,7 @@
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" >
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
                                     <div class="card-body">
                                         <div class="list-group">
                                             <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
@@ -175,14 +177,35 @@
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
-                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <h6>Your Tasks</h6>
+                                        <button id="buttonClicked" class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <h6>Tasks</h6>
+                                        </button>
+                                        <button id="buttonHiddenClicked" class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" onClick="this.blur();">
+                                            <h6 font></h6>
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" >
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusam.
+                                        <div class="list-group">
+                                            <div id="two">
+                                                <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h6 class="mb-1">Snacks</h6>
+                                                    </div>
+                                                    <p class="mb-1">Bring Juice</p>
+                                                    <p class="mb-1">Bring Oranges</p>
+                                                </a>
+                                            </div>
+                                            <div id="one">
+                                                <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                                                    <div class="d-flex w-100 justify-content-between">
+                                                        <h6 class="mb-1">Why am I seeing this?</h6>
+                                                    </div>
+                                                    <p class="mb-1">Your are not signed up for any tasks yet. Feel bad? Sign up for one!</p>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -195,5 +218,13 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $("#buttonHiddenClicked").click(function () {
+            $("#one").toggle("slow");
+        });
+        $("#buttonClicked").click(function () {
+            $("#two").toggle("slow");
+        });
+    </script>
 </body>
 </html>

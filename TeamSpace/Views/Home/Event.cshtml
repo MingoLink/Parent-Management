@@ -539,7 +539,7 @@
                         </div>
                         <div class="col-md-3">
  
-                            <button class="btn btn-primary mb-1" onclick="toggleSnackSignUp()" type="button">Sign Up</button>
+                            <button id ="toggleButton" class="btn btn-primary mb-1" onclick="toggleSnackSignUp(), toggleButtonAppearance()" type="button">Sign Up</button>
                             
                         </div>
                         <div class="col-md-1">
@@ -671,6 +671,13 @@
         }
     </script>
 
+    <script>
+        function toggleButtonAppearance(btn) {
+            var x = document.getElementById("toggleButton");
+            x.style.background = "Green"; 
+            x.innerHTML = "Signed Up!";
+        }
+    </script>
 
 </body>
 </html>

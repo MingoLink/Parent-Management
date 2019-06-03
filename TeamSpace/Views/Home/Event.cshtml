@@ -719,7 +719,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <p style="color: red; text-align: left; text-indent: 0em">You have not signed up for any volunteer tasks yet.</p>
+                                <p id="warning" style="color: red; text-align: left; text-indent: 0em">You have not signed up for any volunteer tasks yet.</p>
                             </div>
                         </div>
                     </div>
@@ -757,6 +757,8 @@
 
         function toggleSnackList() {
             $("#item").toggle("slow");
+            var x = document.getElementById("warning");
+            x.innerHTML = ""; 
         }
 
 

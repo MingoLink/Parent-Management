@@ -651,6 +651,12 @@
                                         Photo Release
                                     </label>
                                 </div>
+                                <div id="item" class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Bring Juice and Orangess
+                                    </label>
+                                </div>
                                 <p style="color: red; text-align: left; text-indent: 0em">You have not signed up for any volunteer tasks yet.</p>
                             </div>
                         </div>
@@ -669,14 +675,16 @@
                 x.innerHTML = "Bring: juice and oranges 0/1";
             }
         }
-    </script>
 
-    <script>
         function toggleButtonAppearance(btn) {
             var x = document.getElementById("toggleButton");
             x.style.background = "Green"; 
             x.innerHTML = "Signed Up!";
         }
+
+        $("#toggleButton").click(function () {
+            $("#item").toggle("slow");
+        });
     </script>
 
 </body>
